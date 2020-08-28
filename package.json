@@ -1,0 +1,28 @@
+{
+  "name": "team-1104-backend",
+  "version": "1.0.0",
+  "description": "REST API endpoint and GRAPHQL API for DigiVet App",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildForSDGCohort2/Team-1104-Backend.git"
+  },
+  "author": "Team-1104",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildForSDGCohort2/Team-1104-Backend/issues"
+  },
+  "homepage": "https://github.com/BuildForSDGCohort2/Team-1104-Backend#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
