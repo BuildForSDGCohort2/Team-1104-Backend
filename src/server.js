@@ -2,5 +2,5 @@
 const fastify = require('fastify')({
   logger: true
 });
-//Database connection
+// Database connection
 module.exports = fastify;
