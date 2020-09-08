@@ -1,4 +1,6 @@
 require('dotenv').config();
+// Require external modules
+const mongoose = require('mongoose');
 // Require the fastify framework and instantiate it
 const server = require('./app')({
   logger: {
@@ -6,8 +8,6 @@ const server = require('./app')({
     prettyPrint: true
   }
 });
-// Require external modules
-const mongoose = require('mongoose');
 
 // Connect to DB
 mongoose
@@ -15,10 +15,12 @@ mongoose
     useUnifiedTopology: true,
     useNewUrlParser: true
   })
-  .then(() => console.log('MongoDB connected...'))
-  .catch((err) => console.log(err));
-
-// Database connection
+  .then(() => {
+    console.log('MongoDB connected...');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 server.listen(process.env.PORT || 3001, '0.0.0.0', (err, address) => {
   if (err) {
