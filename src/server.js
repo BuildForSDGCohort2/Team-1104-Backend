@@ -16,15 +16,15 @@ mongoose
     useNewUrlParser: true
   })
   .then(() => {
-    console.log('MongoDB connected...');
+    server.log.info('MongoDB connected...');
   })
   .catch((err) => {
-    console.log(err);
+    server.log(err);
   });
 
-server.listen(process.env.PORT || 3001, '0.0.0.0', (err, address) => {
+server.listen(process.env.PORT || 3001, '0.0.0.0', (err) => {
   if (err) {
-    console.log(err);
+    server.log(err);
     process.exit(1);
   }
 });
