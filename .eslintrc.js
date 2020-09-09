@@ -19,6 +19,6 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'never'],
     'linebreak-style': ['error', 'windows'],
-    'arrow-body-style': ['error', 'never']
+    'arrow-body-style': ['error', 'always']
   }
 };
