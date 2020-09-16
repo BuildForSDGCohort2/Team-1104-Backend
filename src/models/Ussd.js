@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const ussdSchema = new mongoose.Schema({
+  user_id: {
+    type: ObjectId,
+    required: true
+  },
   phone: {
     type: String,
     unique: true,

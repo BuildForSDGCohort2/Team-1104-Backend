@@ -21,10 +21,20 @@ module.exports = {
     'linebreak-style': ['error', 'windows'],
     'arrow-body-style': ['error', 'always'],
     'import/newline-after-import': 'off',
-    'no-underscore-dangle': [2, { allow: [] }],
+    'no-underscore-dangle': 'never',
     'new-cap': ['error', { newIsCap: false }],
     'prefer-destructuring': ['error', { object: false, array: false }],
     'func-names': ['error', 'never'],
+    'object-shorthand': ['error', 'never'],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTaggedTemplates: true,
+        allowTernary: false
+      }
+    ],
+    'no-useless-escape': 'never',
     'object-shorthand': ['error', 'never']
   }
 };
