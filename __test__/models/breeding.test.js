@@ -35,7 +35,8 @@ describe('Breeding Model Test', () => {
     let err = '';
     try {
       const savedrecordWithoutRequiredField = await recordWithoutRequiredField.save();
-      error = savedrecordWithoutRequiredField;
+      const error = savedrecordWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

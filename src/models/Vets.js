@@ -33,7 +33,9 @@ const vetsSchema = new mongoose.Schema({
           v
         );
       },
-      message: (props) => `${props.value} is not a valid phone number!`
+      message: (props) => {
+        `${props.value} is not a valid phone number!`;
+      }
     },
     required: [true, 'Vet phone number required']
   },
@@ -44,7 +46,9 @@ const vetsSchema = new mongoose.Schema({
       validator: function (v) {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v);
       },
-      message: (props) => `${props.value} is not a valid Email!`
+      message: (props) => {
+        `${props.value} is not a valid Email!`;
+      }
     },
     required: [true, 'Vet email required']
   },

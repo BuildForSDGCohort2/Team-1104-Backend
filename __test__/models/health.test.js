@@ -38,7 +38,8 @@ describe('Health Model Test', () => {
     let err = '';
     try {
       const savedHealthWithoutRequiredField = await healthWithoutRequiredField.save();
-      error = savedHealthWithoutRequiredField;
+      const error = savedHealthWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

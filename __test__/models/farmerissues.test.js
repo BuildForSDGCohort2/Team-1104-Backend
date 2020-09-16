@@ -27,7 +27,8 @@ describe('Farmer Issues Model Test', () => {
     let err = '';
     try {
       const savedIssueWithoutRequiredField = await issueWithoutRequiredField.save();
-      error = savedIssueWithoutRequiredField;
+      const error = savedIssueWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

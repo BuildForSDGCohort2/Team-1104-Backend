@@ -32,7 +32,8 @@ describe('FollowUp Model Test', () => {
     let err = '';
     try {
       const savedFollowupWithoutRequiredField = await followupWithoutRequiredField.save();
-      error = savedFollowupWithoutRequiredField;
+      const error = savedFollowupWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

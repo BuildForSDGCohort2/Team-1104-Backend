@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Bcrypt = require('bcryptjs');
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const usersSchema = new mongoose.Schema({
   firstName: {
@@ -20,7 +19,9 @@ const usersSchema = new mongoose.Schema({
           v
         );
       },
-      message: (props) => `${props.value} is not a valid phone number!`
+      message: (props) => {
+        `${props.value} is not a valid phone number!`;
+      }
     },
     required: [true, 'Farmer phone number required']
   },
@@ -31,7 +32,9 @@ const usersSchema = new mongoose.Schema({
       validator: function (v) {
         return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v);
       },
-      message: (props) => `${props.value} is not a valid Email!`
+      message: (props) => {
+        `${props.value} is not a valid Email!`;
+      }
     },
     required: [true, 'User email required']
   },

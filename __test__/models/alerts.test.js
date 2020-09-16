@@ -30,7 +30,8 @@ describe('Alerts Model Test', () => {
     let err = '';
     try {
       const savedFarmerWithoutRequiredField = await farmerWithoutRequiredField.save();
-      error = savedFarmerWithoutRequiredField;
+      const error = savedFarmerWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

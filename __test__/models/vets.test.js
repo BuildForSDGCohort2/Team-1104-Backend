@@ -49,7 +49,8 @@ describe('Vets Model Test', () => {
     let err = '';
     try {
       const savedVetWithInvalidField = await VetWithInvalidField.save();
-      error = savedVetWithInvalidField;
+      const error = savedVetWithInvalidField;
+      throw new Error(error);
     } catch (error) {
       err = error;
       // console.error(err);
@@ -73,7 +74,8 @@ describe('Vets Model Test', () => {
     let err = '';
     try {
       const savedVetInvalidEmail = await VetWithInvalidEmail.save();
-      error = savedVetInvalidEmail;
+      const error = savedVetInvalidEmail;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }
@@ -87,7 +89,8 @@ describe('Vets Model Test', () => {
     let err = '';
     try {
       const savedvetWithoutRequiredField = await vetWithoutRequiredField.save();
-      error = savedvetWithoutRequiredField;
+      const error = savedvetWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

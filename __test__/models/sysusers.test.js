@@ -66,7 +66,8 @@ describe('User Model Test', () => {
     let err = '';
     try {
       const savedUserWithInvalidField = await UserWithInvalidField.save();
-      error = savedUserWithInvalidField;
+      const error = savedUserWithInvalidField;
+      throw new Error(error);
     } catch (error) {
       err = error;
       // console.error(err);
@@ -79,7 +80,8 @@ describe('User Model Test', () => {
     let err = '';
     try {
       const savedUserInvalidEmail = await UserWithInvalidEmail.save();
-      error = savedUserInvalidEmail;
+      const error = savedUserInvalidEmail;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }
@@ -93,7 +95,8 @@ describe('User Model Test', () => {
     let err = '';
     try {
       const savedUserWithoutRequiredField = await UserWithoutRequiredField.save();
-      error = savedUserWithoutRequiredField;
+      const error = savedUserWithoutRequiredField;
+      throw new Error(error);
     } catch (error) {
       err = error;
     }

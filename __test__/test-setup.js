@@ -38,16 +38,16 @@ const isEmpty = (obj) => {
 async function removeAllCollections() {
   const collections = Object.keys(mongoose.connection.collections);
   if (isEmpty(collections)) return;
-  for (let collection of collections) {
-    await mongoose.connection.collections[collection].deleteMany({});
+  for (const collection of collections) {
+    mongoose.connection.collections[collection].deleteMany({});
   }
 }
 
 async function dropAllCollections() {
   const collections = Object.keys(mongoose.connection.collections);
   if (isEmpty(collections)) return;
-  for (let collectionName of collections) {
-    await mongoose.connection.collections[collectionName].drop();
+  for (const collectionName of collections) {
+    mongoose.connection.collections[collectionName].drop();
   }
 }
 

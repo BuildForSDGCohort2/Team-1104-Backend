@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./src/server.js",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "eslint": "eslint ./src"
   },
   "repository": {
     "type": "git",
