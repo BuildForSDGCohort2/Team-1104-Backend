@@ -21,7 +21,7 @@ module.exports = {
     'linebreak-style': ['error', 'windows'],
     'arrow-body-style': ['error', 'always'],
     'import/newline-after-import': 'off',
-    'no-underscore-dangle': ['error', 'never'],
+    'no-underscore-dangle': ['error', 'allow'],
     'new-cap': ['error', { newIsCap: false }],
     'prefer-destructuring': ['error', { object: false, array: false }],
     'func-names': ['error', 'never'],
