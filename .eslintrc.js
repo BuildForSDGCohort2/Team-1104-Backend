@@ -21,7 +21,7 @@ module.exports = {
     'linebreak-style': ['error', 'windows'],
     'arrow-body-style': ['error', 'always'],
     'import/newline-after-import': 'off',
-    'no-underscore-dangle': 'never',
+    'no-underscore-dangle': ['error', 'never'],
     'new-cap': ['error', { newIsCap: false }],
     'prefer-destructuring': ['error', { object: false, array: false }],
     'func-names': ['error', 'never'],
@@ -34,7 +34,7 @@ module.exports = {
         allowTernary: false
       }
     ],
-    'no-useless-escape': 'never',
+    'no-useless-escape': ['error', 'never'],
     'object-shorthand': ['error', 'never']
   }
 };
