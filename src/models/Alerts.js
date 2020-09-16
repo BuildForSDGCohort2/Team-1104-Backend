@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const alertsSchema = new mongoose.Schema({
-  user_Id: {
+  userId: {
     type: ObjectId,
     required: true
   },

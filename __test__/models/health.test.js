@@ -10,24 +10,30 @@ setupDB('health');
 describe('Health Model Test', () => {
   it('create & save Livestock Health records successfully when all details are correct', async () => {
     const healthData = {
-      farmer_id: await FarmerModel.findOne({ phone: '254722395251' }),
-      livestock_id: await LivestockModel.findOne({ name: 'Neema' }),
+      farmerId: await FarmerModel.findOne({ phone: '254722395251' }),
+      livestockId: await LivestockModel.findOne({ name: 'Neema' }),
       recordType: 'Treatment',
       diagnosis: 'Acute Mastitis',
       medicineUsed: 'Mastisol, Buterlex',
       cost: 2100,
-      vet_id: await VetsModel.findOne({ phone: '254720953991' })
+      vetId: await VetsModel.findOne({ phone: '254720953991' })
     };
     const healthRecords = new HealthModel(healthData);
     const savedHealth = await healthRecords.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedHealth._id).toBeDefined();
-    expect(savedHealth.farmer_id).toBe(healthData.farmer_id._id);
-    expect(savedHealth.livestock_id).toBe(healthData.livestock_id._id);
+    expect(savedHealth.id).toBeDefined();
+    expect(JSON.stringify(savedHealth.farmerId)).toBe(
+      JSON.stringify(healthData.farmerId.id)
+    );
+    expect(JSON.stringify(savedHealth.livestockId)).toBe(
+      JSON.stringify(healthData.livestockId.id)
+    );
     expect(savedHealth.diagnosis).toBe(healthData.diagnosis);
     expect(savedHealth.medicineUsed).toBe(healthData.medicineUsed);
     expect(savedHealth.cost).toBe(healthData.cost);
-    expect(savedHealth.vet_id).toBe(healthData.vet_id._id);
+    expect(JSON.stringify(savedHealth.vetId)).toBe(
+      JSON.stringify(healthData.vetId.id)
+    );
     expect(savedHealth.createdAt).toBeInstanceOf(Date);
   });
 

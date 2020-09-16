@@ -46,7 +46,7 @@ const farmerSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  sub_county: {
+  subCounty: {
     type: String,
     required: true
   },
@@ -74,7 +74,7 @@ const farmerSchema = new mongoose.Schema({
     required: false,
     default: null
   },
-  is_active: {
+  isActive: {
     type: Boolean,
     default: true
   },

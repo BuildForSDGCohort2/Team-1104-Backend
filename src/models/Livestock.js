@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const livestockSchema = new mongoose.Schema({
-  farmer_id: {
+  farmerId: {
     type: ObjectId,
     required: true
   },

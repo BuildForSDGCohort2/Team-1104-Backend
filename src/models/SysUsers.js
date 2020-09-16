@@ -46,11 +46,11 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  is_active: {
+  isActive: {
     type: Boolean,
     default: true
   },
-  is_staff: {
+  isStaff: {
     type: Boolean,
     default: true
   },
@@ -62,7 +62,7 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  sub_county: {
+  subCounty: {
     type: String,
     required: true
   },

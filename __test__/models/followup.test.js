@@ -9,19 +9,23 @@ setupDB('health');
 describe('FollowUp Model Test', () => {
   it('create & save Livestock follow ups records successfully when all details are correct', async () => {
     const followupData = {
-      health_id: await HealthModel.findOne({ recordType: 'Treatment' }),
+      healthId: await HealthModel.findOne({ recordType: 'Treatment' }),
       remarks: 'On way to recovery added some antibiotics',
       cost: 200,
-      vet_id: await VetsModel.findOne({ phone: '254720953991' })
+      vetId: await VetsModel.findOne({ phone: '254720953991' })
     };
     const followUp = new FollowUpModel(followupData);
     const savedFollowup = await followUp.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedFollowup._id).toBeDefined();
-    expect(savedFollowup.health_id).toBe(followupData.health_id._id);
+    expect(savedFollowup.id).toBeDefined();
+    expect(JSON.stringify(savedFollowup.healthId)).toBe(
+      JSON.stringify(followupData.healthId.id)
+    );
     expect(savedFollowup.remarks).toBe(followupData.remarks);
     expect(savedFollowup.cost).toBe(followupData.cost);
-    expect(savedFollowup.vet_id).toBe(followupData.vet_id._id);
+    expect(JSON.stringify(savedFollowup.vetId)).toBe(
+      JSON.stringify(followupData.vetId.id)
+    );
     expect(savedFollowup.createdAt).toBeInstanceOf(Date);
   });
 

@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const followupSchema = new mongoose.Schema({
-  health_id: {
+  healthId: {
     type: ObjectId,
     required: true
   },
-  vet_id: {
+  vetId: {
     type: ObjectId,
     required: true
   },

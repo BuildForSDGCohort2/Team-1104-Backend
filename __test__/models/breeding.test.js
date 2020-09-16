@@ -10,8 +10,8 @@ setupDB('breeding');
 describe('Breeding Model Test', () => {
   it('create & save Breeding records successfully when all details are correct', async () => {
     const breedingData = {
-      farmer_id: await FarmerModel.findOne({ phone: '254722395251' }),
-      liverstock_id: await LivestockModel.findOne({ name: 'Neema' }),
+      farmerId: await FarmerModel.findOne({ phone: '254722395251' }),
+      liverstockId: await LivestockModel.findOne({ name: 'Neema' }),
       bullCode: '007HO11314',
       bullName: 'MOGUL ET',
       cost: 1500,
@@ -20,12 +20,18 @@ describe('Breeding Model Test', () => {
     const breedingRecord = new breedingModel(breedingData);
     const savedRecord = await breedingRecord.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedRecord._id).toBeDefined();
-    expect(savedRecord.farmer_id).toBe(breedingData.farmer_id._id);
-    expect(savedRecord.liverstock_id).toBe(breedingData.liverstock_id._id);
+    expect(savedRecord.id).toBeDefined();
+    expect(JSON.stringify(savedRecord.farmerId)).toBe(
+      JSON.stringify(breedingData.farmerId.id)
+    );
+    expect(JSON.stringify(savedRecord.liverstockId)).toBe(
+      JSON.stringify(breedingData.liverstockId.id)
+    );
     expect(savedRecord.bullCode).toBe(breedingData.bullCode);
     expect(savedRecord.bullName).toBe(breedingData.bullName);
-    expect(savedRecord.servedBy).toBe(breedingData.servedBy._id);
+    expect(JSON.stringify(savedRecord.servedBy)).toBe(
+      JSON.stringify(breedingData.servedBy.id)
+    );
   });
 
   it('create Breeding without required fields should failed', async () => {

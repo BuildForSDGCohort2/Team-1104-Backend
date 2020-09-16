@@ -10,7 +10,7 @@ const userData = {
   phone: '254700693363',
   email: 'ipkiruig83@outlook.com',
   county: 'Kericho',
-  sub_county: 'Bureti',
+  subCounty: 'Bureti',
   ward: 'Kisiara',
   gender: 'Male',
   department: 'Administrator',
@@ -23,7 +23,7 @@ const userData2 = {
   phone: '25472398323',
   email: 'kipkiruismall@gmail.com',
   county: 'Kericho',
-  sub_county: 'Bureti',
+  subCounty: 'Bureti',
   ward: 'Kisiara',
   gender: 'Male',
   department: 'Administrator',
@@ -36,7 +36,7 @@ const userData3 = {
   phone: '254721395251',
   email: 'ipkiruig83gmail.com',
   county: 'Kericho',
-  sub_county: 'Bureti',
+  subCounty: 'Bureti',
   ward: 'Kisiara',
   gender: 'Male',
   department: 'Administrator',
@@ -48,13 +48,13 @@ describe('User Model Test', () => {
     const validUser = new UserModel(userData);
     const savedUser = await validUser.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedUser._id).toBeDefined();
+    expect(savedUser.id).toBeDefined();
     expect(savedUser.firstName).toBe(userData.firstName);
     expect(savedUser.lastName).toBe(userData.lastName);
     expect(savedUser.phone).toBe(userData.phone);
     expect(savedUser.email).toBe(userData.email);
     expect(savedUser.county).toBe(userData.county);
-    expect(savedUser.sub_county).toBe(userData.sub_county);
+    expect(savedUser.subCounty).toBe(userData.subCounty);
     expect(savedUser.ward).toBe(userData.ward);
     expect(savedUser.gender).toBe(userData.gender);
     expect(savedUser.department).toBe(userData.department);

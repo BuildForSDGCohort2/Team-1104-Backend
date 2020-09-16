@@ -6,11 +6,11 @@ const healthSchema = new mongoose.Schema({
     type: String,
     default: null
   },
-  farmer_id: {
+  farmerId: {
     type: ObjectId,
     required: true
   },
-  livestock_id: {
+  livestockId: {
     type: ObjectId,
     required: true
   },
@@ -31,7 +31,7 @@ const healthSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  vet_id: {
+  vetId: {
     type: ObjectId,
     default: null
   },

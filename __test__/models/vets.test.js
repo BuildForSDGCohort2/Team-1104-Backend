@@ -13,7 +13,7 @@ describe('Vets Model Test', () => {
       phone: '254720953992',
       email: 'ipkiruig83@v2mail.com',
       county: 'Kericho',
-      sub_county: 'Bureti',
+      subCounty: 'Bureti',
       ward: 'Kisiara',
       gender: 'Male',
       registeredBy: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' })
@@ -21,16 +21,18 @@ describe('Vets Model Test', () => {
     const vet = new vetsModel(vetsData);
     const savedVet = await vet.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedVet._id).toBeDefined();
+    expect(savedVet.id).toBeDefined();
     expect(savedVet.firstName).toBe(vetsData.firstName);
     expect(savedVet.lastName).toBe(vetsData.lastName);
     expect(savedVet.phone).toBe(vetsData.phone);
     expect(savedVet.email).toBe(vetsData.email);
     expect(savedVet.county).toBe(vetsData.county);
-    expect(savedVet.sub_county).toBe(vetsData.sub_county);
+    expect(savedVet.subCounty).toBe(vetsData.subCounty);
     expect(savedVet.ward).toBe(vetsData.ward);
     expect(savedVet.gender).toBe(vetsData.gender);
-    expect(savedVet.registeredBy).toBe(vetsData.registeredBy._id);
+    expect(JSON.stringify(savedVet.registeredBy)).toBe(
+      JSON.stringify(vetsData.registeredBy.id)
+    );
   });
 
   it('create Vet with invalid phone number should failed', async () => {
@@ -40,7 +42,7 @@ describe('Vets Model Test', () => {
       phone: '25472095399',
       email: 'ipkiruig83@v3mail.com',
       county: 'Kericho',
-      sub_county: 'Bureti',
+      subCounty: 'Bureti',
       ward: 'Kisiara',
       gender: 'Male',
       registeredBy: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' })
@@ -65,7 +67,7 @@ describe('Vets Model Test', () => {
       phone: '254722953991',
       email: 'ipkiruig83v3mail.com',
       county: 'Kericho',
-      sub_county: 'Bureti',
+      subCounty: 'Bureti',
       ward: 'Kisiara',
       gender: 'Male',
       registeredBy: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' })

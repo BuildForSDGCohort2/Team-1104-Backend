@@ -13,7 +13,7 @@ const testAdmin = {
   phone: '254723953991',
   email: 'ipkiruig83@xmail.com',
   county: 'Kericho',
-  sub_county: 'Bureti',
+  subCounty: 'Bureti',
   ward: 'Kisiara',
   gender: 'Male',
   department: 'Administrator',
@@ -25,7 +25,7 @@ const testFarmer = {
   lastName: 'Kipkirui Geoffrey',
   phone: '254722395251',
   county: 'Kericho',
-  sub_county: 'Bureti',
+  subCounty: 'Bureti',
   ward: 'Kisiara',
   gender: 'Male',
   age: 35
@@ -39,7 +39,7 @@ async function removeAllCollections() {
   const collections = Object.keys(mongoose.connection.collections);
   if (isEmpty(collections)) return;
   for (const collection of collections) {
-    mongoose.connection.collections[collection].deleteMany({});
+    await mongoose.connection.collections[collection].deleteMany({});
   }
 }
 
@@ -47,7 +47,7 @@ async function dropAllCollections() {
   const collections = Object.keys(mongoose.connection.collections);
   if (isEmpty(collections)) return;
   for (const collectionName of collections) {
-    mongoose.connection.collections[collectionName].drop();
+    await mongoose.connection.collections[collectionName].drop();
   }
 }
 
@@ -55,8 +55,6 @@ module.exports = {
   setupDB(databaseName) {
     // Connect to Mongoose
     beforeAll(async () => {
-      // in memory db || process.env.MONGO_URL TEST_DATABASE_URL
-      // console.log(process.env.MONGO_URI);
       const url = `${process.env.TEST_DATABASE_URL}${databaseName}`;
       await mongoose.connect(url, {
         useNewUrlParser: true,
@@ -74,14 +72,14 @@ module.exports = {
         phone: '254720953991',
         email: 'ipkiruig83@vmail.com',
         county: 'Kericho',
-        sub_county: 'Bureti',
+        subCounty: 'Bureti',
         ward: 'Kisiara',
         gender: 'Male',
         registeredBy: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' })
       };
 
       const testLivestock = {
-        farmer_id: await FarmerModel.findOne({ phone: '254722395251' }),
+        farmerId: await FarmerModel.findOne({ phone: '254722395251' }),
         categoryAtRegistration: 'Heifer',
         name: 'Neema',
         breed: 'Holstein',
@@ -91,13 +89,13 @@ module.exports = {
       await VetsModel.create(testVet);
       await livestockModel.create(testLivestock);
       const testHealth = {
-        farmer_id: await FarmerModel.findOne({ phone: '254722395251' }),
-        livestock_id: await livestockModel.findOne({ name: 'Neema' }),
+        farmerId: await FarmerModel.findOne({ phone: '254722395251' }),
+        livestockId: await livestockModel.findOne({ name: 'Neema' }),
         recordType: 'Treatment',
         diagnosis: 'Acute Mastitis',
         medicineUsed: 'Mastisol, Buterlex',
         cost: 2100,
-        vet_id: await VetsModel.findOne({ phone: '254720953991' })
+        vetId: await VetsModel.findOne({ phone: '254720953991' })
       };
       await HealthModel.create(testHealth);
     });

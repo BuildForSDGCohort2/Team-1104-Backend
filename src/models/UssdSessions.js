@@ -6,7 +6,7 @@ const ussdSessionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  user_id: {
+  userId: {
     type: ObjectId,
     required: true,
     default: null

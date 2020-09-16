@@ -8,7 +8,7 @@ const UserModel = require('../../src/models/SysUsers');
 describe('Alerts Model Test', () => {
   it('create & save Alerts successfully when all details are correct', async () => {
     const alerts = {
-      user_Id: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' }),
+      userId: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' }),
       alertType: 'Disease Outbreak',
       details: 'lumpy skin disease',
       source: 'vet'
@@ -16,8 +16,10 @@ describe('Alerts Model Test', () => {
     const validAlert = new AlertsModel(alerts);
     const savedAlert = await validAlert.save();
     // Object Id should be defined when successfully saved to MongoDB.
-    expect(savedAlert._id).toBeDefined();
-    expect(savedAlert.user_Id).toBe(alerts.user_Id._id);
+    expect(savedAlert.id).toBeDefined();
+    expect(JSON.stringify(savedAlert.userId)).toBe(
+      JSON.stringify(alerts.userId.id)
+    );
     expect(savedAlert.alertType).toBe(alerts.alertType);
     expect(savedAlert.details).toBe(alerts.details);
     expect(savedAlert.source).toBe(alerts.source);

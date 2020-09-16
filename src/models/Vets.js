@@ -56,7 +56,7 @@ const vetsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  sub_county: {
+  subCounty: {
     type: String,
     required: true
   },
@@ -64,7 +64,7 @@ const vetsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  is_active: {
+  isActive: {
     type: Boolean,
     default: true
   },

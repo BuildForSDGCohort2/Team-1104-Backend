@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const farmerissuesSchema = new mongoose.Schema({
-  farmer_id: {
+  farmerId: {
     type: ObjectId,
     required: true
   },
@@ -27,11 +27,11 @@ const farmerissuesSchema = new mongoose.Schema({
     type: String,
     default: null
   },
-  actioned_By: {
+  actionedBy: {
     type: ObjectId,
     default: null
   },
-  actioned_Date: {
+  actionedDate: {
     type: Date,
     default: null
   },
