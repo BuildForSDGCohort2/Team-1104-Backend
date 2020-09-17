@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/server.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "eslint": "eslint ./src"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/BuildForSDGCohort2/Team-1104-Backend#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "boom": "^7.3.0",
     "dotenv": "^8.2.0",
     "fastify": "^3.3.0",
@@ -25,6 +28,7 @@
     "mongoose": "^5.10.3"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "babel-eslint": "^8.2.6",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^14.2.0",

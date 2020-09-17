@@ -19,6 +19,20 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'never'],
     'linebreak-style': ['error', 'windows'],
-    'arrow-body-style': ['error', 'always']
+    'arrow-body-style': ['error', 'always'],
+    'import/newline-after-import': 'off',
+    'new-cap': ['error', { newIsCap: false }],
+    'func-names': ['error', 'never'],
+    'object-shorthand': ['error', 'never'],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTaggedTemplates: true,
+        allowTernary: false
+      }
+    ],
+    'no-useless-escape': ['error', 'never'],
+    'object-shorthand': ['error', 'never']
   }
 };
