@@ -44,11 +44,11 @@ describe('Farmer Model Test', () => {
   });
 
   it('create farmer with invalid phone number should failed', async () => {
-    const farmerWithoutRequiredField = new FarmerModel(farmerData2);
+    const farmerWithInvalidPhone = new FarmerModel(farmerData2);
     let err = '';
     try {
-      const savedFarmerWithoutRequiredField = await farmerWithoutRequiredField.save();
-      const error = savedFarmerWithoutRequiredField;
+      const savedfarmerWithInvalidPhone = await farmerWithInvalidPhone.save();
+      const error = savedfarmerWithInvalidPhone;
       throw new Error(error);
     } catch (error) {
       err = error;

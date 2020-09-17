@@ -26,13 +26,13 @@ describe('Alerts Model Test', () => {
   });
 
   it('create Alert without required fields should failed', async () => {
-    const farmerWithoutRequiredField = new AlertsModel({
+    const alertWithoutRequiredField = new AlertsModel({
       age: 35
     });
     let err = '';
     try {
-      const savedFarmerWithoutRequiredField = await farmerWithoutRequiredField.save();
-      const error = savedFarmerWithoutRequiredField;
+      const savedAlertWithoutRequiredField = await alertWithoutRequiredField.save();
+      const error = savedAlertWithoutRequiredField;
       throw new Error(error);
     } catch (error) {
       err = error;
