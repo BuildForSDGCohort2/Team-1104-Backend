@@ -9,14 +9,6 @@ const ussdSchema = new mongoose.Schema({
   phone: {
     type: String,
     unique: true,
-    validate: {
-      validator: function (v) {
-        return /^(?:254|\+254|0)?(7(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/.test(
-          v
-        );
-      },
-      message: (props) => `${props.value} is not a valid phone number!`
-    },
     required: [true, 'Farmer phone number required']
   },
   userType: {

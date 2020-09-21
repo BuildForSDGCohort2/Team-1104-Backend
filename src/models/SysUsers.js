@@ -50,6 +50,10 @@ const usersSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   isStaff: {
     type: Boolean,
     default: true
