@@ -5,12 +5,8 @@ const Breeding = require('../models/Breeding');
 
 // Get all breeding records
 exports.getBreeding = async () => {
-  try {
-    const brecords = await Breeding.find();
-    return brecords;
-  } catch (err) {
-    throw boom.boomify(err);
-  }
+  const brecords = await Breeding.find();
+  return brecords;
 };
 // Get all farmer breeding records
 exports.getAllFarmerBrecords = async (req) => {

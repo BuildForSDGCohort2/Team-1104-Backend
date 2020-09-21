@@ -4,12 +4,8 @@ const boom = require('boom');
 const FollowUp = require('../models/FollowUps');
 // get every Health folow ups tus
 exports.getAllFollowups = async () => {
-  try {
-    const followups = await FollowUp.find();
-    return followups;
-  } catch (err) {
-    throw boom.boomify(err);
-  }
+  const followups = await FollowUp.find();
+  return followups;
 };
 
 // Get all by Health Id

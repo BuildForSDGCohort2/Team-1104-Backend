@@ -5,12 +5,8 @@ const Alerts = require('../models/Alerts');
 
 // Get all alerts
 exports.getAlerts = async () => {
-  try {
-    const alerts = await Alerts.find();
-    return alerts;
-  } catch (err) {
-    throw boom.boomify(err);
-  }
+  const alerts = await Alerts.find();
+  return alerts;
 };
 // Get all un-action alerts
 exports.getUnactionAlerts = async () => {

@@ -4,12 +4,8 @@ const boom = require('boom');
 const Farmer = require('../models/Farmer');
 // get every farmer all status
 exports.getAllFarmers = async () => {
-  try {
-    const allfarmers = await Farmer.find();
-    return allfarmers;
-  } catch (err) {
-    throw boom.boomify(err);
-  }
+  const allfarmers = await Farmer.find();
+  return allfarmers;
 };
 
 // Get all Active farmers
