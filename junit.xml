@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="22" failures="0" time="25.02">
-  <testsuite name="Health Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:27" time="6.82" tests="2">
-    <testcase classname="Health Model Test create &amp; save Livestock Health records successfully when all details are correct" name="Health Model Test create &amp; save Livestock Health records successfully when all details are correct" time="2.102">
+<testsuites name="jest tests" tests="22" failures="0" time="19.644">
+  <testsuite name="Alerts Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:38" time="6.869" tests="2">
+    <testcase classname="Alerts Model Test create &amp; save Alerts successfully when all details are correct" name="Alerts Model Test create &amp; save Alerts successfully when all details are correct" time="1.382">
     </testcase>
-    <testcase classname="Health Model Test create Issue without required fields should failed" name="Health Model Test create Issue without required fields should failed" time="0.229">
-    </testcase>
-  </testsuite>
-  <testsuite name="Breeding Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:26" time="7.549" tests="2">
-    <testcase classname="Breeding Model Test create &amp; save Breeding records successfully when all details are correct" name="Breeding Model Test create &amp; save Breeding records successfully when all details are correct" time="2.112">
-    </testcase>
-    <testcase classname="Breeding Model Test create Breeding without required fields should failed" name="Breeding Model Test create Breeding without required fields should failed" time="0.267">
+    <testcase classname="Alerts Model Test create Alert without required fields should failed" name="Alerts Model Test create Alert without required fields should failed" time="0.431">
     </testcase>
   </testsuite>
-  <testsuite name="Vets Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:34" time="3.745" tests="4">
-    <testcase classname="Vets Model Test create &amp; save new Vet successfully when all details are correct" name="Vets Model Test create &amp; save new Vet successfully when all details are correct" time="1.54">
+  <testsuite name="Farmer Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:38" time="7.173" tests="3">
+    <testcase classname="Farmer Model Test create &amp; save Farmer details successfully when all details are correct" name="Farmer Model Test create &amp; save Farmer details successfully when all details are correct" time="1.272">
     </testcase>
-    <testcase classname="Vets Model Test create Vet with invalid phone number should failed" name="Vets Model Test create Vet with invalid phone number should failed" time="0.198">
+    <testcase classname="Farmer Model Test create farmer with invalid phone number should failed" name="Farmer Model Test create farmer with invalid phone number should failed" time="0.533">
     </testcase>
-    <testcase classname="Vets Model Test create Vet with invalid Email should failed" name="Vets Model Test create Vet with invalid Email should failed" time="0.189">
-    </testcase>
-    <testcase classname="Vets Model Test create Breeding without required fields should failed" name="Vets Model Test create Breeding without required fields should failed" time="0.25">
+    <testcase classname="Farmer Model Test create farmer without required fields should failed" name="Farmer Model Test create farmer without required fields should failed" time="0.242">
     </testcase>
   </testsuite>
-  <testsuite name="User Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:33" time="4.513" tests="4">
-    <testcase classname="User Model Test create &amp; save System User details successfully when all details are correct" name="User Model Test create &amp; save System User details successfully when all details are correct" time="1.965">
+  <testsuite name="Breeding Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:38" time="7.199" tests="2">
+    <testcase classname="Breeding Model Test create &amp; save Breeding records successfully when all details are correct" name="Breeding Model Test create &amp; save Breeding records successfully when all details are correct" time="1.751">
     </testcase>
-    <testcase classname="User Model Test create User with invalid phone number should failed" name="User Model Test create User with invalid phone number should failed" time="0.232">
-    </testcase>
-    <testcase classname="User Model Test create User with invalid Email should failed" name="User Model Test create User with invalid Email should failed" time="0.203">
-    </testcase>
-    <testcase classname="User Model Test create User without required fields should failed" name="User Model Test create User without required fields should failed" time="0.223">
+    <testcase classname="Breeding Model Test create Breeding without required fields should failed" name="Breeding Model Test create Breeding without required fields should failed" time="0.255">
     </testcase>
   </testsuite>
-  <testsuite name="FollowUp Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:38" time="2.546" tests="2">
-    <testcase classname="FollowUp Model Test create &amp; save Livestock follow ups records successfully when all details are correct" name="FollowUp Model Test create &amp; save Livestock follow ups records successfully when all details are correct" time="0.825">
+  <testsuite name="Health Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:46" time="3.853" tests="2">
+    <testcase classname="Health Model Test create &amp; save Livestock Health records successfully when all details are correct" name="Health Model Test create &amp; save Livestock Health records successfully when all details are correct" time="1.934">
     </testcase>
-    <testcase classname="FollowUp Model Test create followup without required fields should failed" name="FollowUp Model Test create followup without required fields should failed" time="0.172">
-    </testcase>
-  </testsuite>
-  <testsuite name="Farmer Issues Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:41" time="3.183" tests="2">
-    <testcase classname="Farmer Issues Model Test create &amp; save Issues raised by farmers successfully when all details are correct" name="Farmer Issues Model Test create &amp; save Issues raised by farmers successfully when all details are correct" time="1.232">
-    </testcase>
-    <testcase classname="Farmer Issues Model Test create Issue without required fields should failed" name="Farmer Issues Model Test create Issue without required fields should failed" time="0.196">
+    <testcase classname="Health Model Test create Issue without required fields should failed" name="Health Model Test create Issue without required fields should failed" time="0.271">
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:44" time="1.123" tests="1">
-    <testcase classname=" default route [GET `/`]" name=" default route [GET `/`]" time="0.162">
+  <testsuite name="Vets Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:46" time="4.53" tests="4">
+    <testcase classname="Vets Model Test create &amp; save new Vet successfully when all details are correct" name="Vets Model Test create &amp; save new Vet successfully when all details are correct" time="1.864">
+    </testcase>
+    <testcase classname="Vets Model Test create Vet with invalid phone number should failed" name="Vets Model Test create Vet with invalid phone number should failed" time="0.257">
+    </testcase>
+    <testcase classname="Vets Model Test create Vet with invalid Email should failed" name="Vets Model Test create Vet with invalid Email should failed" time="0.407">
+    </testcase>
+    <testcase classname="Vets Model Test create Breeding without required fields should failed" name="Vets Model Test create Breeding without required fields should failed" time="0.39">
     </testcase>
   </testsuite>
-  <testsuite name="Farmer Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:37" time="9.381" tests="3">
-    <testcase classname="Farmer Model Test create &amp; save Farmer details successfully when all details are correct" name="Farmer Model Test create &amp; save Farmer details successfully when all details are correct" time="0.779">
+  <testsuite name="User Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:46" time="4.977" tests="4">
+    <testcase classname="User Model Test create &amp; save System User details successfully when all details are correct" name="User Model Test create &amp; save System User details successfully when all details are correct" time="2.394">
     </testcase>
-    <testcase classname="Farmer Model Test create farmer with invalid phone number should failed" name="Farmer Model Test create farmer with invalid phone number should failed" time="0.219">
+    <testcase classname="User Model Test create User with invalid phone number should failed" name="User Model Test create User with invalid phone number should failed" time="0.379">
     </testcase>
-    <testcase classname="Farmer Model Test create farmer without required fields should failed" name="Farmer Model Test create farmer without required fields should failed" time="0.221">
+    <testcase classname="User Model Test create User with invalid Email should failed" name="User Model Test create User with invalid Email should failed" time="0.386">
+    </testcase>
+    <testcase classname="User Model Test create User without required fields should failed" name="User Model Test create User without required fields should failed" time="0.307">
     </testcase>
   </testsuite>
-  <testsuite name="Alerts Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T08:36:26" time="21.347" tests="2">
-    <testcase classname="Alerts Model Test create &amp; save Alerts successfully when all details are correct" name="Alerts Model Test create &amp; save Alerts successfully when all details are correct" time="0.69">
+  <testsuite name="Farmer Issues Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:49" time="5.118" tests="2">
+    <testcase classname="Farmer Issues Model Test create &amp; save Issues raised by farmers successfully when all details are correct" name="Farmer Issues Model Test create &amp; save Issues raised by farmers successfully when all details are correct" time="2.118">
     </testcase>
-    <testcase classname="Alerts Model Test create Alert without required fields should failed" name="Alerts Model Test create Alert without required fields should failed" time="0.179">
+    <testcase classname="Farmer Issues Model Test create Issue without required fields should failed" name="Farmer Issues Model Test create Issue without required fields should failed" time="0.199">
+    </testcase>
+  </testsuite>
+  <testsuite name="FollowUp Model Test" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:50" time="4.39" tests="2">
+    <testcase classname="FollowUp Model Test create &amp; save Livestock follow ups records successfully when all details are correct" name="FollowUp Model Test create &amp; save Livestock follow ups records successfully when all details are correct" time="2.399">
+    </testcase>
+    <testcase classname="FollowUp Model Test create followup without required fields should failed" name="FollowUp Model Test create followup without required fields should failed" time="0.195">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2020-09-17T09:00:51" time="4.143" tests="1">
+    <testcase classname=" default route [GET `/`]" name=" default route [GET `/`]" time="0.396">
     </testcase>
   </testsuite>
 </testsuites>
