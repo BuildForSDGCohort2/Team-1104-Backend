@@ -30,7 +30,7 @@ exports.getSingleAlert = async (req) => {
 };
 
 // Add a new alert
-exports.addCar = async (req) => {
+exports.addAlert = async (req) => {
   try {
     const alert = new Alerts(req);
     const newAlert = await alert.save();

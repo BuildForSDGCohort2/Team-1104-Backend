@@ -84,7 +84,7 @@ const farmerSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    required: true,
+    required: false,
     default: null
   },
   location: {

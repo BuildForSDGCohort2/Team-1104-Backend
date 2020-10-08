@@ -5,7 +5,7 @@ const Ussd = require('../models/Ussd');
 // get all ussd users
 exports.getUssdUsers = async () => {
   try {
-    const ussdusers = await Ussd.find();
+    const ussdusers = await Ussd.find({});
     return ussdusers;
   } catch (err) {
     throw boom.boomify(err);
@@ -27,7 +27,7 @@ exports.getUserById = async (req) => {
 exports.getUserByPhone = async (req) => {
   try {
     const phone = req.params === undefined ? req.phone : req.params.phone;
-    const ussdphone = await Ussd.find({ phone: phone });
+    const ussdphone = await Ussd.findOne({ phone: phone });
     return ussdphone;
   } catch (err) {
     throw boom.boomify(err);
@@ -37,7 +37,7 @@ exports.getUserByPhone = async (req) => {
 // Add a new user
 exports.addussdUser = async (req) => {
   try {
-    const ussd = new User(req);
+    const ussd = new Ussd(req);
     const newuser = await ussd.save();
     return newuser;
   } catch (err) {
@@ -48,11 +48,10 @@ exports.addussdUser = async (req) => {
 // Update an existing user
 exports.updateussdUser = async (req) => {
   try {
-    const ussdid = req.params === undefined ? req.ussdid : req.params.ussdid;
-    const updateussduser = req.params === undefined ? req : req.params;
-    const updatedussd = await Ussd.findByIdAndUpdate(ussdid, updateussduser, {
-      new: true
-    });
+    const ussdid = req.params === undefined ? req.id : req.params.id;
+    const updatedata =
+      req.params === undefined ? req.updateData : req.params.updateData;
+    const updatedussd = await Ussd.findByIdAndUpdate(ussdid, updatedata);
     return updatedussd;
   } catch (err) {
     throw boom.boomify(err);

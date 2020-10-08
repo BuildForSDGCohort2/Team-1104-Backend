@@ -3,7 +3,7 @@ const boom = require('boom');
 // Get Data Models
 const Health = require('../models/Health');
 // get health records by farmer id and livestock idall status
-exports.getAllFarmerBrecords = async (req) => {
+exports.getAllFarmerHrecords = async (req) => {
   try {
     const farmerid =
       req.params === undefined ? req.farmerId : req.params.farmerId;
@@ -14,6 +14,17 @@ exports.getAllFarmerBrecords = async (req) => {
       { liverstockId: livestockid }
     ]);
     return livestochhealthbrecords;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
+exports.getrecordById = async (req) => {
+  try {
+    const id = req.params === undefined ? req.id : req.params.id;
+
+    const record = await Health.findById(id);
+    return record;
   } catch (err) {
     throw boom.boomify(err);
   }

@@ -28,7 +28,7 @@ exports.getDormantFarmers = async () => {
 };
 
 // Get single farmer by ID
-exports.getFarmer = async (req) => {
+exports.getFarmerById = async (req) => {
   try {
     const id = req.params === undefined ? req.id : req.params.id;
     const farmer = await Farmer.findById(id);
@@ -58,6 +58,16 @@ exports.updateFarmer = async (req) => {
       new: true
     });
     return update;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
+exports.deleteFarmer = async (req) => {
+  try {
+    const id = req.params === undefined ? req.id : req.params.id;
+    const deletedFarmer = await farmer.findByIdAndRemove(id);
+    return deletedFarmer;
   } catch (err) {
     throw boom.boomify(err);
   }

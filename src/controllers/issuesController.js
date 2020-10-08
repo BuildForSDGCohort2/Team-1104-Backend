@@ -5,7 +5,7 @@ const Issues = require('../models/FarmerIssues');
 // get all issues
 exports.getIssues = async () => {
   try {
-    const issues = await Issues.find();
+    const issues = await Issues.find({});
     return issues;
   } catch (err) {
     throw boom.boomify(err);
@@ -23,9 +23,9 @@ exports.getUndoneIssues = async () => {
 };
 
 // Get single farmer issue by Id
-exports.getIssue = async (req) => {
+exports.getIssueById = async (req) => {
   try {
-    const id = req.params === undefined ? req.id : req.params.id;
+    const id = req.params === undefined ? req.issueid : req.params.issueid;
     const farmer = await Issues.findById(id);
     return farmer;
   } catch (err) {

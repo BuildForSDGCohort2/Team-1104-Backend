@@ -35,7 +35,7 @@ exports.getsentMessages = async () => {
 // Get all messages
 exports.getAllMessages = async () => {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find({});
     return messages;
   } catch (err) {
     throw boom.boomify(err);
@@ -46,7 +46,7 @@ exports.getAllMessages = async () => {
 exports.getMessageById = async (req) => {
   try {
     const id = req.params === undefined ? req.id : req.params.id;
-    const message = await Message.find({ id: id });
+    const message = await Message.findById(id);
     return message;
   } catch (err) {
     throw boom.boomify(err);

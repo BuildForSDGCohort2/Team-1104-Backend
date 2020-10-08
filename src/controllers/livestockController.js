@@ -20,10 +20,32 @@ exports.getLivestock = async (req) => {
     const farmerid =
       req.params === undefined ? req.farmerid : req.params.farmerid;
     const livestockid = req.params === undefined ? req.id : req.params.id;
-    const cow = await Issues.find([
-      { farmerId: farmerid },
-      { id: livestockid }
-    ]);
+    const cow = await Livestock.findOne({
+      farmerId: farmerid,
+      id: livestockid
+    });
+    return cow;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
+exports.getLivestockByFarmerId = async (req) => {
+  try {
+    const farmerid =
+      req.params === undefined ? req.farmerid : req.params.farmerid;
+    const livestockid = req.params === undefined ? req.cowid : req.params.cowid;
+    const cow = await Livestock.find({ farmerId: farmerid });
+    return cow;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
+exports.getLivestockById = async (req) => {
+  try {
+    const livestockid = req.params === undefined ? req.id : req.params.id;
+    const cow = await Livestock.findById(livestockid);
     return cow;
   } catch (err) {
     throw boom.boomify(err);

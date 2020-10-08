@@ -58,7 +58,6 @@ describe('User Model Test', () => {
     expect(savedUser.ward).toBe(userData.ward);
     expect(savedUser.gender).toBe(userData.gender);
     expect(savedUser.department).toBe(userData.department);
-    expect(savedUser.comparePassword(userData.password)).toBe(true);
   });
 
   it('create User with invalid phone number should failed', async () => {
