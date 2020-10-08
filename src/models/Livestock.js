@@ -61,14 +61,6 @@ const livestockSchema = new mongoose.Schema({
     required: true,
     default: 0
   },
-  updatedBy: {
-    type: ObjectId,
-    default: null
-  },
-  updatedAt: {
-    type: Date,
-    default: null
-  },
   createdAt: {
     type: Date,
     default: Date.now

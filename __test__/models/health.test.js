@@ -4,7 +4,8 @@ const { setupDB } = require('../test-setup');
 const HealthModel = require('../../src/models/Health');
 const FarmerModel = require('../../src/models/Farmer');
 const LivestockModel = require('../../src/models/Livestock');
-const VetsModel = require('../../src/models/Vets');
+const UserModel = require('../../src/models/SysUsers');
+
 setupDB('health');
 
 describe('Health Model Test', () => {
@@ -16,7 +17,7 @@ describe('Health Model Test', () => {
       diagnosis: 'Acute Mastitis',
       medicineUsed: 'Mastisol, Buterlex',
       cost: 2100,
-      vetId: await VetsModel.findOne({ phone: '254720953991' })
+      vetId: await UserModel.findOne({ phone: '254720953991' })
     };
     const healthRecords = new HealthModel(healthData);
     const savedHealth = await healthRecords.save();

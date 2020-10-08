@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const { setupDB } = require('../test-setup');
 const breedingModel = require('../../src/models/Breeding');
 const FarmerModel = require('../../src/models/Farmer');
-const VetsModel = require('../../src/models/Vets');
 const LivestockModel = require('../../src/models/Livestock');
+const UserModel = require('../../src/models/SysUsers');
 setupDB('breeding');
 
 describe('Breeding Model Test', () => {
@@ -15,7 +15,7 @@ describe('Breeding Model Test', () => {
       bullCode: '007HO11314',
       bullName: 'MOGUL ET',
       cost: 1500,
-      servedBy: await VetsModel.findOne({ phone: '254720953991' })
+      servedBy: await UserModel.findOne({ phone: '254720953991' })
     };
     const breedingRecord = new breedingModel(breedingData);
     const savedRecord = await breedingRecord.save();

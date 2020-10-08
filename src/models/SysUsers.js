@@ -42,6 +42,11 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  token: {
+    type: String,
+    required: false,
+    default: null
+  },
   password: {
     type: String,
     required: true
@@ -93,9 +98,5 @@ usersSchema.pre('save', async function (next) {
   const hashedPassword = Bcrypt.hashSync(this.password, salt);
   this.password = hashedPassword;
 });
-
-usersSchema.methods.comparePassword = function (plaintext) {
-  return Bcrypt.compareSync(plaintext, this.password);
-};
 
 module.exports = mongoose.model('Users', usersSchema);

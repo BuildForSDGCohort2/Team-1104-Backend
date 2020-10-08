@@ -11,7 +11,8 @@ test('default route [GET `/`]', async () => {
   expect(res.statusCode).toEqual(HttpStatus.OK);
   expect(JSON.parse(res.payload)).toEqual(
     expect.objectContaining({
-      Hello: 'DigiVet World'
+      status: 'success',
+      data: { Hello: 'DigiVet World' }
     })
   );
 });

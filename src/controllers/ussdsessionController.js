@@ -5,10 +5,22 @@ const UssdSession = require('../models/UssdSessions');
 // get all ussd session by service id
 exports.getUssdSession = async (req) => {
   try {
-    const serviceId =
-      req.params === undefined ? req.serviceId : req.params.serviceId;
-    const ussdsession = await UssdSession.find({ serviceId: serviceId });
+    const sessionid =
+      req.params === undefined ? req.sessionId : req.params.sessionId;
+    console.log('id', sessionid);
+    const ussdsession = await UssdSession.findOne({
+      sessionId: sessionid
+    }).exec();
     return ussdsession;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
+exports.getUssdSessions = async (req) => {
+  try {
+    const ussdsessions = await UssdSession.find({});
+    return ussdsessions;
   } catch (err) {
     throw boom.boomify(err);
   }
@@ -19,7 +31,7 @@ exports.getUssdSessionById = async (req) => {
   try {
     const sessionid =
       req.params === undefined ? req.sessionid : req.params.sessionid;
-    const ussdsession = await UssdSession.find({ id: sessionid });
+    const ussdsession = await UssdSession.findById(sessionid);
     return ussdsession;
   } catch (err) {
     throw boom.boomify(err);
@@ -41,14 +53,14 @@ exports.addussdSession = async (req) => {
 exports.updateussdSession = async (req) => {
   try {
     const sessionid =
-      req.params === undefined ? req.sessionid : req.params.sessionid;
-    const updatesession = req.params === undefined ? req : req.params;
-    const updatedussdsess = await Ussd.findByIdAndUpdate(
-      sessionid,
-      updatesession,
+      req.params === undefined ? req.sessionId : req.params.sessionId;
+    const updatesession =
+      req.params === undefined ? req.updateData : req.params.updateData;
+    const updatedussdsess = await UssdSession.updateOne(
       {
-        new: true
-      }
+        sessionId: sessionid
+      },
+      updatesession
     );
     return updatedussdsess;
   } catch (err) {

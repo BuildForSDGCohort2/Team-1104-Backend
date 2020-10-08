@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { setupDB } = require('../test-setup');
 const FollowUpModel = require('../../src/models/FollowUps');
 const HealthModel = require('../../src/models/Health');
-const VetsModel = require('../../src/models/Vets');
+const UserModel = require('../../src/models/SysUsers');
 setupDB('health');
 
 describe('FollowUp Model Test', () => {
@@ -12,7 +12,7 @@ describe('FollowUp Model Test', () => {
       healthId: await HealthModel.findOne({ recordType: 'Treatment' }),
       remarks: 'On way to recovery added some antibiotics',
       cost: 200,
-      vetId: await VetsModel.findOne({ phone: '254720953991' })
+      vetId: await UserModel.findOne({ phone: '254720953991' })
     };
     const followUp = new FollowUpModel(followupData);
     const savedFollowup = await followUp.save();

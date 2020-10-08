@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const ussdSessionSchema = new mongoose.Schema({
   serviceCode: {
@@ -7,11 +6,11 @@ const ussdSessionSchema = new mongoose.Schema({
     required: true
   },
   userId: {
-    type: ObjectId,
+    type: String,
     required: true,
     default: null
   },
-  sessiontype: {
+  sessionId: {
     type: String,
     required: true,
     default: null
@@ -20,13 +19,24 @@ const ussdSessionSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  sublevel: {
+    type: Number,
+    required: true,
+    default: 0
+  },
   data: {
     type: JSON,
     required: false
   },
-  status: {
-    type: String,
-    default: null
+  regstatus: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  assessedstatus: {
+    type: Boolean,
+    required: true,
+    default: false
   },
   createdAt: {
     type: Date,

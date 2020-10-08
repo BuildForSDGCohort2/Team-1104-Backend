@@ -4,7 +4,6 @@ mongoose.set('useCreateIndex', true);
 
 const UserModel = require('../src/models/SysUsers');
 const FarmerModel = require('../src/models/Farmer');
-const VetsModel = require('../src/models/Vets');
 const livestockModel = require('../src/models/Livestock');
 const HealthModel = require('../src/models/Health');
 const testAdmin = {
@@ -75,7 +74,8 @@ module.exports = {
         subCounty: 'Bureti',
         ward: 'Kisiara',
         gender: 'Male',
-        registeredBy: await UserModel.findOne({ email: 'ipkiruig83@xmail.com' })
+        department: 'Administrator',
+        password: process.env.PASSWORD
       };
 
       const testLivestock = {
@@ -86,7 +86,7 @@ module.exports = {
         sex: 'Heifer'
       };
 
-      await VetsModel.create(testVet);
+      await UserModel.create(testVet);
       await livestockModel.create(testLivestock);
       const testHealth = {
         farmerId: await FarmerModel.findOne({ phone: '254722395251' }),
@@ -95,7 +95,7 @@ module.exports = {
         diagnosis: 'Acute Mastitis',
         medicineUsed: 'Mastisol, Buterlex',
         cost: 2100,
-        vetId: await VetsModel.findOne({ phone: '254720953991' })
+        vetId: await UserModel.findOne({ phone: '254720953991' })
       };
       await HealthModel.create(testHealth);
     });
