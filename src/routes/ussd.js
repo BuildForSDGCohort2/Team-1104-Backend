@@ -21,7 +21,7 @@ const optsUssd = {
       properties: {
         sessionId: { type: 'string' },
         code: { type: 'string' },
-        phone: { type: 'string', maxLength: 12, minLength: 12 },
+        phone: { type: 'string', maxLength: 13, minLength: 13 },
         text: { type: 'string', default: '' }
       }
     },
@@ -50,10 +50,15 @@ module.exports = function (fastify, options, done) {
     // let registrationLevel = 0;
     const sessionid = request.query.sessionId;
     const serviceCode = request.query.code;
-    const phoneNumber = request.query.phone;
+    const phoneNumber = request.query.phone.slice(1);
+    const zipCode = phoneNumber.slice(0, 3);
+    message = 'END Invalid Phone Number';
+    if (zipCode !== '254') {
+      message = 'END Invalid Phone Number';
+      reply.code(200).header('Content-Type', 'text/plain').send(message);
+    }
     const text = request.query.text;
     const txt = request.query.text.split(/[*#]/);
-    console.log('txt', txt);
     const txtlen = txt.length;
     let level;
     let sublevel;
@@ -76,7 +81,7 @@ module.exports = function (fastify, options, done) {
       const farmer = await ussdController.getUserByPhone({
         phone: phoneNumber
       });
-      // console.log('farmer', farmer);
+
       // if not registered prompt the farmer to register
       if (!farmer) {
         message = 'CON Welcome to DigiVet \n';
@@ -351,7 +356,6 @@ module.exports = function (fastify, options, done) {
           const countyIdx = await ussdSessionController.getUssdSession({
             sessionId: sessionid
           });
-          console.log('idxdata', countyIdx.data.county);
           if (!txt[txtlen - 1].match(/^[A-Za-z ]+$/)) {
             message = `CON ${countyIdx.data.county.toUpperCase()} County \n`;
             message += 'Enter Correct Sub County Name\n';
@@ -502,7 +506,6 @@ module.exports = function (fastify, options, done) {
       }
       // No
     } else {
-      console.log(parseInt(txt[0]) === 1 && isRegistered === false);
       message = 'END Invalid Selection';
     }
     reply.code(200).header('Content-Type', 'text/plain').send(message);
