@@ -17,12 +17,11 @@ const optsUssd = {
     tags: ['ussd'],
     querystring: {
       type: 'object',
-      required: ['sessionId', 'networkCode', 'phoneNumber','serviceCode','text'],
+      required: ['sessionId', 'code', 'phone'],
       properties: {
         sessionId: { type: 'string' },
-        networkCode: { type: 'string' },
-        serviceCode: { type: 'string' },
-        phoneNumber: { type: 'string', maxLength: 13, minLength: 13 },
+        code: { type: 'string' },
+        phone: { type: 'string', maxLength: 13, minLength: 13 },
         text: { type: 'string', default: '' }
       }
     },
@@ -43,16 +42,15 @@ const optsUssd = {
 };
 
 module.exports = function (fastify, options, done) {
-  fastify.post('/ussd', optsUssd, async (request, reply) => {
+  fastify.get('/ussd', optsUssd, async (request, reply) => {
     let isRegistered = false;
     let isAssessed = false;
     let message = '';
     let data;
     // let registrationLevel = 0;
     const sessionid = request.query.sessionId;
-    const serviceCode = request.query.serviceCode;
-    const networkCode= request.query.networkCode;
-    const phoneNumber = request.query.phoneNumber.slice(1);
+    const serviceCode = request.query.code;
+    const phoneNumber = request.query.phone.slice(1);
     const zipCode = phoneNumber.slice(0, 3);
     message = 'END Invalid Phone Number';
     if (zipCode !== '254') {
