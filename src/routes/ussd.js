@@ -17,7 +17,7 @@ const optsUssd = {
     tags: ['ussd'],
     querystring: {
       type: 'object',
-      required: ['sessionId', 'networkCode', 'phoneNumber','serviceCode','text'],
+      required: ['sessionId', 'networkCode', 'phoneNumber','serviceCode'],
       properties: {
         sessionId: { type: 'string' },
         networkCode: { type: 'string' },
