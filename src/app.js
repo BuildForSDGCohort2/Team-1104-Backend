@@ -42,6 +42,7 @@ function build(opts = {}) {
       .send({ status: 'success', data: { Hello: 'DigiVet World' } });
   });
   app.register(require('./routes/ussd'), { prefix: '/v1' });
+  app.register(require('./routes/ussdGet'), { prefix: '/v1' });
   app.register(require('./routes/login'), { prefix: '/api/v1' });
   app.register(require('./routes/appLogin'), { prefix: '/api/v1' });
 
