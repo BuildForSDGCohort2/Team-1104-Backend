@@ -60,7 +60,7 @@ module.exports = function (fastify, options, done) {
       reply.code(200).header('Content-Type', 'text/plain').send(message);
     }
     const text = request.body.text;
-    const txt = request.query.text.split(/[*#]/);
+    const txt = request.body.text.split(/[*#]/);
     const txtlen = txt.length;
     let level;
     let sublevel;
