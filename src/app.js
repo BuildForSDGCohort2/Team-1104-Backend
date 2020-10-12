@@ -36,6 +36,8 @@ function build(opts = {}) {
     origin: '*',
     credentials: true
   });
+  app.register(require('fastify-formbody'))
+  
   app.get('/', (request, reply) => {
     reply
       .status(200)
