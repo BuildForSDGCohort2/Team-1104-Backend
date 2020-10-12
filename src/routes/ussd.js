@@ -15,7 +15,7 @@ const optsUssd = {
   schema: {
     description: 'Ussd Endpoint Route for DigiVet App',
     tags: ['ussd'],
-    querystring: {
+    body: {
       type: 'object',
       required: ['sessionId', 'networkCode', 'phoneNumber','serviceCode'],
       properties: {
@@ -49,17 +49,17 @@ module.exports = function (fastify, options, done) {
     let message = '';
     let data;
     // let registrationLevel = 0;
-    const sessionid = request.query.sessionId;
-    const serviceCode = request.query.serviceCode;
-    const networkCode= request.query.networkCode;
-    const phoneNumber = request.query.phoneNumber.slice(1);
+    const sessionid = request.body.sessionId;
+    const serviceCode = request.body.serviceCode;
+    const networkCode= request.body.networkCode;
+    const phoneNumber = request.body.phoneNumber.slice(1);
     const zipCode = phoneNumber.slice(0, 3);
     message = 'END Invalid Phone Number';
     if (zipCode !== '254') {
       message = 'END Invalid Phone Number';
       reply.code(200).header('Content-Type', 'text/plain').send(message);
     }
-    const text = request.query.text;
+    const text = request.body.text;
     const txt = request.query.text.split(/[*#]/);
     const txtlen = txt.length;
     let level;
