@@ -42,7 +42,7 @@ const optsUssd = {
 };
 
 module.exports = function (fastify, options, done) {
-  fastify.get('get/ussd', optsUssd, async (request, reply) => {
+  fastify.get('/ussd', optsUssd, async (request, reply) => {
     let isRegistered = false;
     let isAssessed = false;
     let message = '';
