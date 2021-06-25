@@ -1,4 +1,3 @@
-'use strict';
 require('dotenv').config();
 const Bcrypt = require('bcryptjs');
 const userController = require('../controllers/usersController');

@@ -4,7 +4,7 @@ const boom = require('boom');
 const Farmer = require('../models/Farmer');
 // get every farmer all status
 exports.getAllFarmers = async () => {
-  const allfarmers = await Farmer.find();
+  const allfarmers = await Farmer.find({}).sort({ createdAt: 1 });
   return allfarmers;
 };
 
@@ -66,7 +66,7 @@ exports.updateFarmer = async (req) => {
 exports.deleteFarmer = async (req) => {
   try {
     const id = req.params === undefined ? req.id : req.params.id;
-    const deletedFarmer = await farmer.findByIdAndRemove(id);
+    const deletedFarmer = await Farmer.findByIdAndRemove(id);
     return deletedFarmer;
   } catch (err) {
     throw boom.boomify(err);

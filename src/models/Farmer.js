@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const pointSchema = new mongoose.Schema({
   type: {
     type: String,
@@ -40,7 +39,7 @@ const farmerSchema = new mongoose.Schema({
         `${props.value} is not a valid phone number!`;
       }
     },
-    required: [true, 'Farmer phone number required']
+    required: [true, 'phone number required']
   },
   county: {
     type: String,
@@ -87,11 +86,13 @@ const farmerSchema = new mongoose.Schema({
     required: false,
     default: null
   },
+
   location: {
     type: pointSchema,
     required: false,
     default: null
   },
+
   createdAt: {
     type: Date,
     default: Date.now

@@ -17,7 +17,7 @@ const optsUssd = {
     tags: ['ussd'],
     body: {
       type: 'object',
-      required: ['sessionId', 'networkCode', 'phoneNumber','serviceCode'],
+      required: ['sessionId', 'networkCode', 'phoneNumber', 'serviceCode'],
       properties: {
         sessionId: { type: 'string' },
         networkCode: { type: 'string' },
@@ -50,16 +50,15 @@ module.exports = function (fastify, options, done) {
     let data;
     // let registrationLevel = 0;
     const sessionid = request.body.sessionId;
-    const serviceCode = request.body.serviceCode;
-    const networkCode= request.body.networkCode;
+    const { serviceCode, networkCode, text } = request.body;
     const phoneNumber = request.body.phoneNumber.slice(1);
     const zipCode = phoneNumber.slice(0, 3);
-    message = 'END Invalid Phone Number';
+    // message = 'END Invalid Phone Number';
     if (zipCode !== '254') {
       message = 'END Invalid Phone Number';
       reply.code(200).header('Content-Type', 'text/plain').send(message);
     }
-    const text = request.body.text;
+
     const txt = request.body.text.split(/[*#]/);
     const txtlen = txt.length;
     let level;
@@ -441,6 +440,8 @@ module.exports = function (fastify, options, done) {
               case 3:
                 gender = 'Other';
                 break;
+              default:
+                gender = 'Other';
             }
 
             const lussd = await ussdSessionController.updateussdSession({

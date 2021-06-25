@@ -3,9 +3,9 @@ exports.options = {
   exposeRoute: true,
   swagger: {
     info: {
-      title: 'DigiVet App Backend',
+      title: 'DigiVet App Backend API',
       description:
-        'REST API for Digivet App Build with Node.js, MongoDB, Fastify,GraphQl and Swagger',
+        'REST API and GRAPHQL Endpoint for Digivet App Build with Node.js, MongoDB, Fastify,GraphQl and Swagger',
       version: '1.0.0'
     },
     externalDocs: {

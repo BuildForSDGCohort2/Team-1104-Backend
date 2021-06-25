@@ -23,7 +23,6 @@ module.exports = {
     'import/newline-after-import': 'off',
     'new-cap': ['error', { newIsCap: false }],
     'func-names': ['error', 'never'],
-    'object-shorthand': ['error', 'never'],
     'no-unused-expressions': [
       'error',
       {
@@ -32,7 +31,6 @@ module.exports = {
         allowTernary: false
       }
     ],
-    'no-useless-escape': ['error', 'never'],
-    'object-shorthand': ['error', 'never']
+    'object-shorthand': 0
   }
 };

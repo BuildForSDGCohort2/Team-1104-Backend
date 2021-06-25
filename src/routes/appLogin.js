@@ -1,4 +1,3 @@
-'use strict';
 require('dotenv').config();
 const Bcrypt = require('bcryptjs');
 const ussdController = require('../controllers/ussdController');
@@ -9,19 +8,21 @@ const optslogin = {
     tags: ['login'],
     body: {
       type: 'object',
-      required: ['phone', 'pin'],
+      required: ['phone', 'pin', 'deviceId'],
       properties: {
         phone: {
           type: 'string',
           maxLength: 10,
           minLength: 10
         },
-        pin: { type: 'string', maxLength: 4, minLength: 4 }
+        pin: { type: 'string', maxLength: 4, minLength: 4 },
+        deviceId: { type: 'string' }
       }
     },
 
     response: {
       200: {
+        description: 'Successful Login',
         type: 'object',
         properties: {
           status: { type: 'string' },
@@ -31,7 +32,9 @@ const optslogin = {
           }
         }
       },
+
       400: {
+        description: 'Error Response',
         type: 'object',
         properties: {
           status: { type: 'string' },
@@ -44,8 +47,8 @@ const optslogin = {
 
 module.exports = async function (fastify, opts, done) {
   fastify.post('/applogin', optslogin, async (request, reply) => {
-    const { phone, pin } = request.body;
-    const registeredPhone = '254' + phone.slice(1);
+    const { phone, pin, deviceId } = request.body;
+    const registeredPhone = `254${phone.slice(1)}`;
     const ussdUser = await ussdController.getUserByPhone({
       phone: registeredPhone
     });
@@ -58,13 +61,16 @@ module.exports = async function (fastify, opts, done) {
     }
     if (Bcrypt.compareSync(pin, ussdUser.pin)) {
       // generate token for these valid user
-      const token = await fastify.jwt.sign({
-        userId: ussdUser.userId,
-        expiresIn: process.env.expiryApp
-      });
+      const token = await fastify.jwt.sign(
+        {
+          id: deviceId,
+          userId: ussdUser.userType
+        },
+        { expiresIn: process.env.expiryApp }
+      );
 
       await ussdController.updateussdUser({
-        updateData: { token: token },
+        updateData: { token: token, deviceId: deviceId },
         id: ussdUser.id
       });
 
@@ -72,7 +78,7 @@ module.exports = async function (fastify, opts, done) {
       reply.code(200);
       reply.send({
         status: 'success',
-        data: { userId: ussdUser.userId, Token: token }
+        data: { user: ussdUser.userType, Token: token }
       });
     } else {
       reply.code(401);

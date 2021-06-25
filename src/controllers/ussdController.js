@@ -34,6 +34,16 @@ exports.getUserByPhone = async (req) => {
   }
 };
 
+exports.getUserByDeviceId = async (req) => {
+  try {
+    const deviceId = req.params === undefined ? req.id : req.params.id;
+    const userDevice = await Ussd.findOne({ deviceId: deviceId });
+    return userDevice;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
+
 // Add a new user
 exports.addussdUser = async (req) => {
   try {

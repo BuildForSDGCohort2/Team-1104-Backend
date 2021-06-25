@@ -10,6 +10,13 @@ exports.getWards = async (req) => {
   return wards;
 };
 
+exports.getAllWards = async () => {
+  const allWards = await Ward.find({}).sort({
+    subCountyName: 1
+  });
+  return allWards;
+};
+
 exports.getWard = async (req) => {
   const subcounty =
     req.params === undefined ? req.subCounty : req.params.subCounty;
